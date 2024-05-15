@@ -19,6 +19,7 @@ for address in tqdm(addresses, ncols=70):
             response = requests.get('https://kx58j6x5me.execute-api.us-east-1.amazonaws.com/scroll/bridge-balances', params=params)
             for str in response.json():
                 if str['points']:
+                     attempt += 1
                     point += int(str['points'])
                     total_point += int(str['points'])
                 else:
